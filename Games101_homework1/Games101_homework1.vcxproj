@@ -139,17 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\learning\图形学\作业\Assignment1\src\main.cpp" />
-    <ClCompile Include="..\..\..\learning\图形学\作业\Assignment1\src\rasterizer.cpp" />
-    <ClCompile Include="..\..\..\learning\图形学\作业\Assignment1\src\Triangle.cpp" />
+    <ClInclude Include="rasterizer.hpp" />
+    <ClInclude Include="Triangle.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\learning\图形学\作业\Assignment1\src\rasterizer.hpp" />
-    <ClInclude Include="..\..\..\learning\图形学\作业\Assignment1\src\Triangle.hpp" />
-    <ClInclude Include="resource.h" />
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\learning\图形学\作业\Assignment1\src\CMakeLists.txt" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="rasterizer.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

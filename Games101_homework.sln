@@ -5,15 +5,11 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Games101_homework1", "Games101_homework1\Games101_homework1.vcxproj", "{63BB14AB-2807-49F2-9C6C-9388C50326EA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{CE5A73EE-ACFB-42B5-A056-ACBA013A5923}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "drawLine", "drawLine\drawLine.vcxproj", "{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "localTest", "localTest\localTest.vcxproj", "{96A4CF8C-4B39-4042-A290-261840FBB523}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Games101_homework2", "Games101_homework2\Games101_homework2.vcxproj", "{2A9813AB-5A2F-47A4-BD7E-D8B108D9F534}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Games101_homework3", "Games101_homework3\Games101_homework3.vcxproj", "{E542DF08-C3FE-4F86-96E1-607CB00B7C58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{4716DAD0-057B-4A71-AA4D-C199ED443BC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,22 +27,6 @@ Global
 		{63BB14AB-2807-49F2-9C6C-9388C50326EA}.Release|x64.Build.0 = Release|x64
 		{63BB14AB-2807-49F2-9C6C-9388C50326EA}.Release|x86.ActiveCfg = Release|Win32
 		{63BB14AB-2807-49F2-9C6C-9388C50326EA}.Release|x86.Build.0 = Release|Win32
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Debug|x64.ActiveCfg = Debug|x64
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Debug|x64.Build.0 = Debug|x64
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Debug|x86.ActiveCfg = Debug|Win32
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Debug|x86.Build.0 = Debug|Win32
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Release|x64.ActiveCfg = Release|x64
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Release|x64.Build.0 = Release|x64
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Release|x86.ActiveCfg = Release|Win32
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A}.Release|x86.Build.0 = Release|Win32
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Debug|x64.ActiveCfg = Debug|x64
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Debug|x64.Build.0 = Debug|x64
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Debug|x86.ActiveCfg = Debug|Win32
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Debug|x86.Build.0 = Debug|Win32
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Release|x64.ActiveCfg = Release|x64
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Release|x64.Build.0 = Release|x64
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Release|x86.ActiveCfg = Release|Win32
-		{96A4CF8C-4B39-4042-A290-261840FBB523}.Release|x86.Build.0 = Release|Win32
 		{2A9813AB-5A2F-47A4-BD7E-D8B108D9F534}.Debug|x64.ActiveCfg = Debug|x64
 		{2A9813AB-5A2F-47A4-BD7E-D8B108D9F534}.Debug|x64.Build.0 = Debug|x64
 		{2A9813AB-5A2F-47A4-BD7E-D8B108D9F534}.Debug|x86.ActiveCfg = Debug|Win32
@@ -66,10 +46,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{0D6F114F-82BE-4E86-AC85-20B40CF5E45A} = {CE5A73EE-ACFB-42B5-A056-ACBA013A5923}
-		{96A4CF8C-4B39-4042-A290-261840FBB523} = {CE5A73EE-ACFB-42B5-A056-ACBA013A5923}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {63AE3D32-9C8D-4805-B8DF-51F6B957A198}
