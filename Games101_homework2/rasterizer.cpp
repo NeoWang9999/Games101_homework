@@ -162,7 +162,7 @@ void rst::rasterizer::draw(pos_buf_id pos_buffer, ind_buf_id ind_buffer, col_buf
 
 //Screen space rasterization
 void rst::rasterizer::rasterize_triangle(const Triangle& t) {
-    // with msaa
+    // with ssaa
 
     auto v = t.toVector4();
 
@@ -172,13 +172,13 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
     float maxx = std::max({ v[0].x(), v[1].x(), v[2].x() });
     float maxy = std::max({ v[0].y(), v[1].y(), v[2].y() });
     // iterate through the pixel and find if the current pixel is inside the triangle
-    for (int x = (int)minx; x < maxx; x++)
+    for (int x = (int)minx; x <= maxx; x++)
     {
-        for (int y = (int)miny; y < maxy; y++)
+        for (int y = (int)miny; y <= maxy; y++)
         {
             bool isSetPixel = false;
-            for (float i = 0.; i < 1.; i += 1. / msaa_w) {
-                for (float j = 0.; j < 1; j += 1. / msaa_h) {
+            for (float i = 0.; i < 1.; i += 1. / ssaa_w) {
+                for (float j = 0.; j < 1; j += 1. / ssaa_h) {
                     Vector3f subP(x + i, y + j, 0);
                     if (!insideTriangle(subP.x(), subP.y(), t.v)) {
                         continue;
@@ -189,13 +189,13 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
                     float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
                     z_interpolated *= w_reciprocal;
 
-                    int msaa_index = get_msaa_index(x + i, y + j);
+                    int ssaa_index = get_ssaa_index(x + i, y + j);
 
-                    if (z_interpolated >= depth_buf[msaa_index]) {
+                    if (z_interpolated >= depth_buf[ssaa_index]) {
                         continue;
                     }
-                    depth_buf[msaa_index] = z_interpolated;
-                    color_buf[msaa_index] = t.getColor();
+                    depth_buf[ssaa_index] = z_interpolated;
+                    color_buf[ssaa_index] = t.getColor();
 
                     isSetPixel = true;
                 }
@@ -206,10 +206,10 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
             int buf_index = get_index(x, y);
             Vector3f comb_color = Vector3f::Zero();
 
-            for (float i = 0.; i < 1.; i += 1. / msaa_w) {
-                for (float j = 0.; j < 1; j += 1. / msaa_h) {
-                    int msaa_index = get_msaa_index(x + i, y + j);
-                    comb_color += (1. / (msaa_w * msaa_h)) * color_buf[msaa_index];
+            for (float i = 0.; i < 1.; i += 1. / ssaa_w) {
+                for (float j = 0.; j < 1; j += 1. / ssaa_h) {
+                    int ssaa_index = get_ssaa_index(x + i, y + j);
+                    comb_color += (1. / (ssaa_w * ssaa_h)) * color_buf[ssaa_index];
                 }
             }
             Vector3f cur_point = Vector3f(x, y, 0);
@@ -251,8 +251,8 @@ rst::rasterizer::rasterizer(int w, int h) : width(w), height(h)
 {
     frame_buf.resize(w * h);
     //depth_buf.resize(w * h);
-    depth_buf.resize(w * h * msaa_w * msaa_h);
-    color_buf.resize(w * h * msaa_w * msaa_h);
+    depth_buf.resize(w * h * ssaa_w * ssaa_h);
+    color_buf.resize(w * h * ssaa_w * ssaa_h);
 }
 
 int rst::rasterizer::get_index(int x, int y)
@@ -260,9 +260,9 @@ int rst::rasterizer::get_index(int x, int y)
     return (height - 1 - y) * width + x;
 }
 
-int rst::rasterizer::get_msaa_index(float x, float y)
+int rst::rasterizer::get_ssaa_index(float x, float y)
 {
-    return (height * msaa_h - 1 - y * msaa_h) * width * msaa_w + x * msaa_w;
+    return (height * ssaa_h - 1 - y * ssaa_h) * width * ssaa_w + x * ssaa_w;
 }
 
 void rst::rasterizer::set_pixel(const Eigen::Vector3f& point, const Eigen::Vector3f& color)

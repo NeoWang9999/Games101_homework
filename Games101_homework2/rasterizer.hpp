@@ -98,15 +98,15 @@ namespace rst
         std::vector<Eigen::Vector3f> color_buf;
         std::vector<float> depth_buf;
         int get_index(int x, int y);
-        int get_msaa_index(float x, float y);
+        int get_ssaa_index(float x, float y);
         
         int width, height;
 
         int next_id = 0;
         int get_next_id() { return next_id++; }
 
-        const int msaa_w = 2;
-        const int msaa_h = 2;
+        const int ssaa_w = 2;
+        const int ssaa_h = 2;
         std::vector<float> msaa_depth_buf;
     };
 }

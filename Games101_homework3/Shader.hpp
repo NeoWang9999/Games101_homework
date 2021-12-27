@@ -24,6 +24,8 @@ struct fragment_shader_payload
     Eigen::Vector3f normal;
     Eigen::Vector2f tex_coords;
     Texture* texture;
+
+    Eigen::Vector3f avg_normal;
 };
 
 struct vertex_shader_payload
